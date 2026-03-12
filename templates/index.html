@@ -1,0 +1,162 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Fashion Recommendation System</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Fashion Recommendation System</h1>
+
+<div class="upload-box">
+
+<form method="POST" enctype="multipart/form-data">
+
+<input type="file" name="file" required>
+<br><br>
+<button type="submit">Upload Image</button>
+
+</form>
+
+</div>
+
+
+{% if uploaded %}
+
+<h3>Uploaded Image</h3>
+
+<img src="{{ url_for('static', filename=uploaded) }}" width="200">
+
+{% endif %}
+
+
+{% if detected_color %}
+
+<h3>Detected Color: {{ detected_color }}</h3>
+
+{% endif %}
+
+
+{% if recommendations %}
+
+<h3>Top Similar Fashion Items</h3>
+
+<div class="recommend-grid">
+
+{% for i in range(recommendations|length) %}
+
+<div class="card">
+
+<img src="{{ url_for('static', filename=recommendations[i]) }}" width="150">
+
+<p><b>Product:</b> {{ product_names[i] }}</p>
+
+<p><b>Category:</b> {{ categories[i] }}</p>
+
+<p><b>Brand:</b> {{ brands[i] }}</p>
+
+<p><b>Similarity:</b> {{ scores[i] }}%</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html> -->
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Fashion Recommendation System</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Fashion Recommendation System</h1>
+
+<div class="upload-box">
+
+<form method="POST" enctype="multipart/form-data">
+
+<input type="file" name="file" required>
+<br><br>
+<button type="submit">Upload Image</button>
+
+</form>
+
+</div>
+
+{% if uploaded %}
+
+<h3>Uploaded Image</h3>
+
+<img src="{{ url_for('static', filename=uploaded) }}" width="200">
+
+{% endif %}
+
+{% if detected_color %}
+
+<h3>Detected Color: {{ detected_color }}</h3>
+
+{% endif %}
+
+{% if clothing_type %}
+
+<h3>Clothing Type: {{ clothing_type }}</h3>
+
+{% endif %}
+
+{% if recommendations %}
+
+<h3>Top Similar Fashion Items</h3>
+
+<div class="recommend-grid">
+
+{% for i in range(recommendations|length) %}
+
+<div class="card">
+
+<img src="{{ url_for('static', filename=recommendations[i]) }}" width="150">
+
+<p><b>Product:</b> {{ product_names[i] }}</p>
+
+<p><b>Category:</b> {{ categories[i] }}</p>
+
+<p><b>Brand:</b> {{ brands[i] }}</p>
+
+<p><b>Similarity:</b> {{ scores[i] }}%</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
